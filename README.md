@@ -1,1 +1,3 @@
 # dotfiles
+
+Zsh config, aliases...
