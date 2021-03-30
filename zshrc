@@ -62,10 +62,6 @@ alias dbd="rails db:drop"
 alias read_secrets="bin/rails runner 'puts Rails::Secrets.read'"
 alias edit_secrets="bin/rails secrets:edit"
 
-# Docker aliases
-alias up="docker-compose up"
-alias down="docker-compose down"
-
 # Webpack aliases
 alias wp="DISABLE_SPRING=true ./bin/webpack-dev-server"
 alias twp="RAILS_ENV=test ./bin/webpack"
@@ -75,6 +71,7 @@ alias rs="bundle exec spring rspec"
 alias check="bundle exec rubocop && bundle exec slim-lint app/views && RAILS_ENV=test ./bin/webpack && bundle exec spring rspec"
 
 # Other aliases
+alias rubymine='j bin; ./rubymine.sh'
 alias open_gem='EDITOR=code bundle open'
 alias zshrc_vi='vi ~/.zshrc'
 alias zshrc_code='code ~/.zshrc'
