@@ -46,7 +46,6 @@ alias gb='git branch'
 alias gbd='git branch -d'
 alias gbD='git branch -D'
 alias gbl='git blame'
-alias rstbr='git reset --hard origin/`git rev-parse --abbrev-ref HEAD`'
 alias force_pull='git reset --hard origin/`git rev-parse --abbrev-ref HEAD`'
 alias deploy_staging='git push -f recette staging:master'
 
@@ -63,12 +62,12 @@ alias read_secrets="bin/rails runner 'puts Rails::Secrets.read'"
 alias edit_secrets="bin/rails secrets:edit"
 
 # Webpack aliases
-alias wp="DISABLE_SPRING=true ./bin/webpack-dev-server"
-alias twp="RAILS_ENV=test ./bin/webpack"
+alias wp=" DISABLE_SPRING=true nvm use && ./bin/webpacker-dev-server"
+alias twp="DISABLE_SPRING=true RAILS_ENV=test NODE_ENV=development ./bin/webpacker"
 
 # Tests aliases
 alias rs="bundle exec spring rspec"
-alias check="bundle exec rubocop && bundle exec slim-lint app/views && RAILS_ENV=test ./bin/webpack && bundle exec spring rspec"
+alias check="bundle exec rubocop && bundle exec slim-lint app/views && yarn lint && RAILS_ENV=test ./bin/webpack --display=minimal && bundle exec spring rspec"
 
 # Other aliases
 alias rubymine='j bin; ./rubymine.sh'
@@ -77,6 +76,8 @@ alias zshrc_vi='vi ~/.zshrc'
 alias zshrc_code='code ~/.zshrc'
 alias rake='noglob rake'
 alias sudo="sudo "
+alias delete_cassettes_with_site_query="grep --include=\*.yml -rnwl . -e 'Ecs__Site__SITES_QUERY' | xargs rm -f"
+alias delete_cassettes_with_contact_query="grep --include=\*.yml -rnwl . -e 'Ecs__Contact__CONTACT_BY_ID' | xargs rm -f"
 
 # Automatically expand all aliases:
 # - don't forget the actual commands
